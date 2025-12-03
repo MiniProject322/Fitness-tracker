@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Droplets, Moon, Utensils, Plus, Info, CheckCircle, Clock, Activity } from 'lucide-react';
+import { Droplets, Moon, Utensils, Plus, Info, CheckCircle, Clock, Activity, Battery } from 'lucide-react';
 import { AppEntry, UserProfile } from '../types';
 
 interface ToolsProps {
@@ -213,12 +213,26 @@ const SleepTool = ({ onSave }: { onSave: (e: any) => void }) => {
         </div>
 
         <div className="flex flex-col justify-center space-y-4">
+           {/* New Card: Recommended Duration */}
+           <div className="p-5 bg-slate-800/40 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
+              <h4 className="text-purple-300 font-bold mb-1 flex items-center gap-2">
+                <Battery size={16} /> Recommended Duration
+              </h4>
+              <p className="text-sm text-slate-400 leading-relaxed mb-2">
+                Most healthy adults need <span className="text-white font-bold">7 to 9 hours</span> of sleep per night to function at their best.
+              </p>
+              <div className="w-full bg-slate-700 h-1.5 rounded-full mt-2">
+                <div className="bg-purple-500 h-1.5 rounded-full w-[75%]"></div>
+              </div>
+           </div>
+
            <div className="p-5 bg-slate-800/40 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
               <h4 className="text-purple-300 font-bold mb-1 flex items-center gap-2">
                 <Moon size={16} /> Deep Sleep (Cycles)
               </h4>
               <p className="text-sm text-slate-400 leading-relaxed">Sleep occurs in 90-minute cycles. Waking up at the end of a cycle makes you feel more refreshed.</p>
            </div>
+           
            <div className="p-5 bg-slate-800/40 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
               <h4 className="text-purple-300 font-bold mb-1 flex items-center gap-2">
                 <Activity size={16} /> Growth Hormone
@@ -237,19 +251,22 @@ const NutritionTool = ({ goal }: { goal: string }) => {
       { name: "Avocado", cal: "160kcal/100g", desc: "Healthy fats" },
       { name: "Nuts & Butters", cal: "600kcal/100g", desc: "Calorie dense" },
       { name: "Lean Red Meat", cal: "250kcal/100g", desc: "Protein & Iron" },
-      { name: "Oats", cal: "389kcal/100g", desc: "Complex Carbs" }
+      { name: "Oats", cal: "389kcal/100g", desc: "Complex Carbs" },
+      { name: "Whole Eggs", cal: "155kcal/100g", desc: "Complete Protein" } // Added
     ],
     loss: [
       { name: "Leafy Greens", cal: "25kcal/100g", desc: "High volume" },
       { name: "White Fish", cal: "90kcal/100g", desc: "Lean Protein" },
       { name: "Berries", cal: "50kcal/100g", desc: "Antioxidants" },
-      { name: "Egg Whites", cal: "52kcal/100g", desc: "Pure Protein" }
+      { name: "Egg Whites", cal: "52kcal/100g", desc: "Pure Protein" },
+      { name: "Cucumber", cal: "16kcal/100g", desc: "Hydration & Fiber" } // Added
     ],
     maintain: [
       { name: "Whole Grains", cal: "120kcal/100g", desc: "Fiber" },
       { name: "Chicken Breast", cal: "165kcal/100g", desc: "Protein" },
       { name: "Greek Yogurt", cal: "59kcal/100g", desc: "Probiotics" },
-      { name: "Sweet Potato", cal: "86kcal/100g", desc: "Vitamins" }
+      { name: "Sweet Potato", cal: "86kcal/100g", desc: "Vitamins" },
+      { name: "Quinoa", cal: "120kcal/100g", desc: "Complete Amino Profile" } // Added
     ]
   } as any;
 
@@ -269,7 +286,7 @@ const NutritionTool = ({ goal }: { goal: string }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {currentList.map((item: any, idx: number) => (
           <div key={idx} className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-green-500 transition-all hover:-translate-y-1 group">
             <h3 className="text-lg font-bold text-white group-hover:text-green-400 transition-colors">{item.name}</h3>
