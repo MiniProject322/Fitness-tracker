@@ -1,0 +1,101 @@
+:root {
+    --bs-body-bg: #020617; /* Slate 950 */
+    --bs-body-color: #f8fafc;
+    --primary-color: #84cc16; /* Lime 500 */
+    --primary-hover: #65a30d; /* Lime 600 */
+    --dark-900: #0f172a;
+    --dark-950: #020617;
+    --border-color: #1e293b;
+}
+
+/* Override Bootstrap Colors */
+.bg-dark-900 { background-color: var(--dark-900) !important; }
+.bg-dark-950 { background-color: var(--dark-950) !important; }
+.text-primary { color: var(--primary-color) !important; }
+.bg-primary { background-color: var(--primary-color) !important; }
+.border-secondary { border-color: var(--border-color) !important; }
+
+/* Custom Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--dark-950);
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: #fff;
+}
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-950);
+}
+.btn-check:checked + .btn-outline-primary {
+    background-color: var(--primary-color);
+    color: var(--dark-950);
+}
+
+/* Subtle Colors */
+.bg-primary-subtle { background-color: rgba(132, 204, 22, 0.1) !important; }
+.bg-purple-subtle { background-color: rgba(168, 85, 247, 0.1) !important; }
+.bg-indigo-subtle { background-color: rgba(99, 102, 241, 0.1) !important; }
+.text-purple { color: #a855f7 !important; }
+.text-indigo { color: #6366f1 !important; }
+.btn-purple { background-color: #9333ea; color: white; border: none; }
+.btn-purple:hover { background-color: #7e22ce; color: white; }
+.btn-indigo { background-color: #4f46e5; color: white; border: none; }
+.btn-indigo:hover { background-color: #4338ca; color: white; }
+
+/* Form Controls */
+.form-control, .form-select {
+    border-color: var(--border-color);
+}
+.form-control:focus, .form-select:focus {
+    background-color: var(--dark-950);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgba(132, 204, 22, 0.25);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Specific Component Styles */
+.nav-link {
+    color: #94a3b8; /* Slate 400 */
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.nav-link:hover {
+    background-color: rgba(255,255,255,0.05);
+    color: white;
+}
+.nav-link.active {
+    background-color: rgba(132, 204, 22, 0.1);
+    color: var(--primary-color);
+    border-right: 3px solid var(--primary-color);
+}
+
+.gradient-overlay {
+    background: linear-gradient(to top, rgba(15, 23, 42, 1) 0%, rgba(15, 23, 42, 0.2) 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--dark-900); }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
